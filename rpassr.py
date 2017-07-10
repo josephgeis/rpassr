@@ -22,7 +22,7 @@ def recover(verbose, min=0, max=9999):
     print("Key: %s | Salt: %s" % (str(goal_key,'utf8'),salt))
 
 def help():
-  print("See the README on GitHub.")
+  print("See the README on GitHub. https://github.com/juniorRubyist/rpassr")
 
 def adv_recover():
   min = input("Starting Passcode? [0000]: ")
