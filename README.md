@@ -1,5 +1,5 @@
 # Restrictions PASScode Recovery
----
+
 This program is licensed under the MIT License.
 
 ## How this Works
