@@ -1,12 +1,12 @@
 import base64, hashlib, sys, os
 print("Welcome to Restrictions Passcode Recovery\n----------")
 
-def recover(verbose, min=0, max=9999):
+def recover(verbose, sta=0, end=9999):
   goal_key = bytes(input("What is RestrictionsPasswordKey? "),'utf8')
   salt = input("What is RestrictionsPasswordSalt? ")
   success = 0
-  raw_code = min
-  while raw_code <= max:
+  raw_code = sta
+  while raw_code <= end:
     code = ("0000" + str(raw_code))[-4:]
     trial = base64.b64encode(hashlib.pbkdf2_hmac('sha1', bytes(code,'utf8'), base64.b64decode(salt), 1000))
     if verbose:
@@ -25,9 +25,9 @@ def help():
   print("See the README on GitHub. https://github.com/juniorRubyist/rpassr")
 
 def adv_recover():
-  min = input("Starting Passcode? [0000]: ")
-  max = input("Ending Passcode? [9999]: ")
-  recover(1,min=min,max=max)
+  sta = int(input("Starting Passcode? [0000]: "))
+  end = int(input("Ending Passcode? [9999]: "))
+  recover(1,sta=sta,end=end)
 
 opts = {
   'h' : (help,[]),
