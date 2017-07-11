@@ -1,4 +1,5 @@
 import base64, hashlib, sys, os
+
 print("Welcome to Restrictions Passcode Recovery\n----------")
 
 def recover(verbose, sta=0, end=9999):
@@ -22,7 +23,11 @@ def recover(verbose, sta=0, end=9999):
     print("Key: %s | Salt: %s" % (str(goal_key,'utf8'),salt))
 
 def help():
-  print("See the README on GitHub. https://github.com/juniorRubyist/rpassr")
+  try:
+    open("README.md")
+    os.system('less --prompt="LOCAL rpassr HELP | PRESS q TO EXIT" README.md')
+  except IOError:
+    print("See the README on GitHub. https://github.com/juniorRubyist/rpassr")
 
 def adv_recover():
   sta = int(input("Starting Passcode? [0000]: "))
